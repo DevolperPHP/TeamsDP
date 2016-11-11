@@ -10,6 +10,7 @@ use pocketmine\event\entity\EntityDamageByEntityEvent;
 use pocketmine\command\CommandSender;
 use pocketmine\command\Command;
 use pocketmine\level\Position;
+use pocketmine\block\Block;
 use pocketmine\item\Item;
 use pocketmine\inventory\InventoryBase;
 use pocketmine\utils\TextFormat as Color;
@@ -52,7 +53,8 @@ class teamsdp extends PluginBase implements Listene{
   }
   
   public function onCommand(CommandSender $sender, Command $cmd, $label, array $args){
-    switch($cmd->getName()){
+    if($sender->isOp()){
+     switch($cmd->getName()){
       case 'team':
         
         if(isset($args[0])){
@@ -65,63 +67,63 @@ class teamsdp extends PluginBase implements Listene{
                     
                   case 'yellow':
                     $worldteamyellow = $sender->getLevel()->getName();
-										$xteamyellow = $sender->getFloorX();
-										$yteamyellow = $sender->getFloorY();
-										$zteamyellow = $sender->getFloorZ();
+		    $xteamyellow = $sender->getFloorX();
+	       	    $yteamyellow = $sender->getFloorY();
+		    $zteamyellow = $sender->getFloorZ();
 										
-										$this->getConfig()->set("xteamyellow", $xteamyellow);
-										$this->getConfig()->set("yteamyellow", $yteamyellow);
-										$this->getConfig()->set("zteamyellow", $zteamyellow);
-										$this->getConfig()->set("worldteamyellow", $worldteamyellow);
-										
-										$sender->sendMessage(Color::YELLOW."[TeamsDP] Yellow Team Spawn Now in [$xteamyellow, $yteamyellow, $zteamyellow]");
-										$sender->sendMessage(Color::YELLOW."[TeamsDP] World [$worldteamyellow]");
-										return true;
+		    $this->getConfig()->set("xteamyellow", $xteamyellow);
+		    $this->getConfig()->set("yteamyellow", $yteamyellow);
+		    $this->getConfig()->set("zteamyellow", $zteamyellow);
+	            $this->getConfig()->set("worldteamyellow", $worldteamyellow);
+				
+		    $sender->sendMessage(Color::YELLOW."[TeamsDP] Yellow Team Spawn Now in [$xteamyellow, $yteamyellow, $zteamyellow]");
+		    $sender->sendMessage(Color::YELLOW."[TeamsDP] World [$worldteamyellow]");
+			return true;
                     
                   case 'red':
                     $worldteamred = $sender->getLevel()->getName();
-										$xteamred = $sender->getFloorX();
-										$yteamred = $sender->getFloorY();
-										$zteamred = $sender->getFloorZ();
+		    $xteamred = $sender->getFloorX();
+	            $yteamred = $sender->getFloorY();
+		    $zteamred = $sender->getFloorZ();
 										
-										$this->getConfig()->set("xteamred", $xteamred);
-										$this->getConfig()->set("yteamred", $yteamred);
-										$this->getConfig()->set("zteamred", $zteamred);
-										$this->getConfig()->set("worldteamred", $worldteamred);
+		    $this->getConfig()->set("xteamred", $xteamred);
+	            $this->getConfig()->set("yteamred", $yteamred);
+		    $this->getConfig()->set("zteamred", $zteamred);
+	            $this->getConfig()->set("worldteamred", $worldteamred);
 										
-										$sender->sendMessage(Color::RED."[TeamsDP] RED Team Spawn Now in [$xteamred, $yteamred, $zteamred]");
-										$sender->sendMessage(Color::RED."[TeamsDP] World [$worldteamred]");
-										return true;
+		    $sender->sendMessage(Color::RED."[TeamsDP] RED Team Spawn Now in [$xteamred, $yteamred, $zteamred]");
+		    $sender->sendMessage(Color::RED."[TeamsDP] World [$worldteamred]");
+			return true;
                     
                   case 'blue':
                     $worldteamblue = $sender->getLevel()->getName();
-										$xteamblue = $sender->getFloorX();
-										$yteamblue = $sender->getFloorY();
-										$zteamblue = $sender->getFloorZ();
+		    $xteamblue = $sender->getFloorX();
+		    $yteamblue = $sender->getFloorY();
+		    $zteamblue = $sender->getFloorZ();
 										
-										$this->getConfig()->set("xteamblue", $xteamblue);
-										$this->getConfig()->set("yteamblue", $yteamblue);
-										$this->getConfig()->set("zteamblue", $zteamblue);
-										$this->getConfig()->set("worldteamblue", $worldteamblue);
+		    $this->getConfig()->set("xteamblue", $xteamblue);
+		    $this->getConfig()->set("yteamblue", $yteamblue);
+	            $this->getConfig()->set("zteamblue", $zteamblue);
+		    $this->getConfig()->set("worldteamblue", $worldteamblue);
 										
-										$sender->sendMessage(Color::AQUA."[TeamsDP] Blue Team Spawn Now in [$xteamblue, $yteamblue, $zteamblue]");
-										$sender->sendMessage(Color::AQUA."[TeamsDP] World [$worldteamblue]");
-										return true;
+		    $sender->sendMessage(Color::AQUA."[TeamsDP] Blue Team Spawn Now in [$xteamblue, $yteamblue, $zteamblue]");
+		    $sender->sendMessage(Color::AQUA."[TeamsDP] World [$worldteamblue]");
+			return true;
                     
                   case 'green':
                     $worldteamgreen = $sender->getLevel()->getName();
-										$xteamgreen = $sender->getFloorX();
-										$yteamgreen = $sender->getFloorY();
-										$zteamgreen = $sender->getFloorZ();
+		    $xteamgreen = $sender->getFloorX();
+		    $yteamgreen = $sender->getFloorY();
+		    $zteamgreen = $sender->getFloorZ();
 										
-										$this->getConfig()->set("xteambgreen", $xteamgreen);
-										$this->getConfig()->set("yteamgreen", $yteamgreen);
-										$this->getConfig()->set("zteamgreen", $zteamgreen);
-										$this->getConfig()->set("worldteamblue", $worldteamgreen);
+		    $this->getConfig()->set("xteambgreen", $xteamgreen);
+		    $this->getConfig()->set("yteamgreen", $yteamgreen);
+		    $this->getConfig()->set("zteamgreen", $zteamgreen);
+		    $this->getConfig()->set("worldteamblue", $worldteamgreen);
 										
-										$sender->sendMessage(Color::AQUA."[TeamsDP] Blue Team Spawn Now in [$xteamgreen, $yteamgreen, $zteamgreen]");
-										$sender->sendMessage(Color::AQUA."[TeamsDP] World [$worldteamgreen]");
-										return true;
+		    $sender->sendMessage(Color::AQUA."[TeamsDP] Blue Team Spawn Now in [$xteamgreen, $yteamgreen, $zteamgreen]");
+		    $sender->sendMessage(Color::AQUA."[TeamsDP] World [$worldteamgreen]");
+			return true;
                     
                   case 'game':
                     $game = $sender->getLevel()->getName();
@@ -135,6 +137,7 @@ class teamsdp extends PluginBase implements Listene{
         }
     }
   }
+    }
   
   public function onTouch(PlayerInteractEvent $event){
     $player = $event->getPlayer();
