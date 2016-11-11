@@ -1,1 +1,10 @@
+---
+name: TeamsDP
+author: JUZEXMOD
+Main: TeamsDP\Teamdp
+version: 1.0
+api: [2.0.0]
 
+commands:
+  team:
+    description: TeamsDP Plugin
